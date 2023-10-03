@@ -1,0 +1,40 @@
+{
+  "name": "todo-mongo-express",
+  "version": "1.0.0",
+  "description": "Basic Todolist with express js and mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AriSu2904/todolist-mongo.git"
+  },
+  "keywords": [
+    "todo",
+    "todolist",
+    "expressjs",
+    "mongo",
+    "mongodb"
+  ],
+  "author": "Ari Susanto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AriSu2904/todolist-mongo/issues"
+  },
+  "homepage": "https://github.com/AriSu2904/todolist-mongo#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.20",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.3"
+  }
+}
