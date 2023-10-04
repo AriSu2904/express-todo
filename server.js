@@ -4,7 +4,7 @@ require("./src/config/db-config");
 
 const port = process.env.SERVER_PORT;
 
-const todoListRoute = require('./src/route/todolist.route.js');
+const todoListRoute = require('./src/route/todo.route.js');
 
 const app = express();
 app.use(express.json());
