@@ -19,3 +19,14 @@ describe("GET /api/v1/todolist", () => {
         expect(res.body.length).toBeGreaterThan(0);
     });
 });
+
+describe("POST /api/v1/todolist", () => {
+    it("should return todolist", async () => {
+        const res = await request(app).post("/api/v1/todolist").send({
+            title: "Belajar",
+            description: "Bejalar Java Oop"
+        })
+        expect(res.statusCode).toBe(201);
+        expect(res.body.title).toBe("Belajar");
+    })
+})
