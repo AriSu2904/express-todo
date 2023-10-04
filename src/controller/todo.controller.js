@@ -9,6 +9,20 @@ class TodoController {
             return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err);
         })
     }
+
+    addTodo = (req, res) => {
+        const {title, description} = req.body;
+
+        const todo = new TodoList({
+            title,description
+        })
+
+        TodoList.create(todo).then((todo) => {
+            return res.status(httpStatus.CREATED).send(todo);
+        }).catch((err) => {
+            return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err);
+        })
+    }
 }
 
 module.exports = TodoController;
