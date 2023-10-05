@@ -34,6 +34,21 @@ describe('GET /api/v1/todolist/:id', () => {
     })
 });
 
+describe('DELETE /api/v1/todolist/:id', () => {
+    it("should delete data", async () => {
+        const res = await request(app).delete('/api/v1/todolist/651d9f0af27661189e9bc07e');
+        expect(res.statusCode).toBe(200);
+        expect(res.text).toContain("Successfully delete todo");
+    })
+});
+
+describe('DELETE /api/v1/todolist/:id', () => {
+    it("should return 404", async () => {
+        const res = await request(app).delete('/api/v1/todolist/651d9f0af27661189e9bc07se');
+        expect(res.statusCode).toBe(404);
+    })
+});
+
 
 describe("POST /api/v1/todolist", () => {
     it("should return todolist", async () => {

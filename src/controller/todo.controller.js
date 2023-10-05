@@ -25,6 +25,16 @@ class TodoController {
         }
     }
 
+    deleteById = async (req, res) => {
+        const id = req.params.id;
+        try {
+            await TodoList.findByIdAndRemove(id);
+            res.status(httpStatus.OK).send({message: "Successfully delete todo"})
+        }catch (err){
+            if(err instanceof mongoose.CastError) return res.status(httpStatus.NOT_FOUND).send({message: `Todo with id ${id} not found!`});
+            return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err);
+        }
+    }
 
     addTodo = async (req, res) => {
         const {title, description} = req.body;
