@@ -25,6 +25,7 @@ class TodoController {
         }
     }
 
+
     addTodo = async (req, res) => {
         const {title, description} = req.body;
 
