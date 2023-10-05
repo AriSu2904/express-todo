@@ -36,6 +36,22 @@ class TodoController {
         }
     }
 
+    updateById = async (req, res) => {
+        const {id, title, description} = req.body;
+
+        const newTodo = new TodoList({
+            id, title, description
+        });
+
+        try {
+            const updatedTodo = await TodoList.findByIdAndUpdate(id, newTodo, {new: true});
+            return res.status(httpStatus.OK).send(updatedTodo);
+        }catch (err){
+            if(err instanceof mongoose.CastError) return res.status(httpStatus.NOT_FOUND).send({message: `Todo with id ${id} not found!`});
+            return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err);
+        }
+    }
+
     addTodo = async (req, res) => {
         const {title, description} = req.body;
 

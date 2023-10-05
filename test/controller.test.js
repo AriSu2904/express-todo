@@ -49,6 +49,18 @@ describe('DELETE /api/v1/todolist/:id', () => {
     })
 });
 
+describe("UPDATE /api/v1/todolist", () => {
+    it("Should return new data", async () => {
+        const res = await request(app).put("/api/v1/todolist").send({
+            id: "651d9fd41cb677317e2c4eee",
+            title: "Belajar",
+            description: "Belajar Java Dasar"
+        })
+        expect(res.statusCode).toBe(200);
+        expect(res.text).toContain("Belajar");
+    })
+})
+
 
 describe("POST /api/v1/todolist", () => {
     it("should return todolist", async () => {
